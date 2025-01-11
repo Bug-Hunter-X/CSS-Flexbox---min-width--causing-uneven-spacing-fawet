@@ -1,0 +1,16 @@
+The following CSS code snippet exhibits an uncommon error that can be challenging to debug:
+
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  background-color: lightblue;
+  padding: 10px;
+  min-width: 100px; /* The culprit */
+}
+```
+
+This code intends to distribute three `.item` elements evenly within a `.container` using flexbox. However, if the content of one `.item` is significantly wider than the `min-width` specified, it might cause unexpected layout behavior.  The `min-width` property prevents the element from shrinking below 100px, but it doesn't prevent it from expanding beyond that. If one item's content is 200px wide, that item will take up 200px, and the remaining space will be distributed between the other two, leading to uneven spacing.
